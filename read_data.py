@@ -1,6 +1,7 @@
 import os.path
 from torch.utils.data import Dataset
 from PIL import Image
+import cv2
 
 
 class MyData(Dataset):
@@ -13,7 +14,7 @@ class MyData(Dataset):
     def __getitem__(self, idx):
         img_name = self.img_path[idx]
         img_item_path = os.path.join(self.root_dir, self.label_dir, img_name)
-        img = Image.open(img_item_path)
+        img = cv2.imread(img_item_path)
         label = self.label_dir
         return img, label
 

@@ -1,6 +1,7 @@
 import read_data
 import learn_tensorboard
-import cv2
+import learn_transform
+
 if __name__ == '__main__':
     root_dir = "dataset/train"
     ants_label_dir = "ants_image"
@@ -14,5 +15,6 @@ if __name__ == '__main__':
     step = 0
     for img, label in train_dataset:
         print(step)
+        img = learn_transform.trans(img)
         learn_tensorboard.test_add_image(img, label, step)
         step = step+1

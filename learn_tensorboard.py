@@ -11,6 +11,5 @@ def test_add_scalar():
 
 def test_add_image(img, label, step):
     writer = SummaryWriter("logs")
-    for i in range(100):
-        writer.add_image("{0}".format(label), img, step, dataformats="HWC")
+    writer.add_image(label, img, step)
     writer.close()
